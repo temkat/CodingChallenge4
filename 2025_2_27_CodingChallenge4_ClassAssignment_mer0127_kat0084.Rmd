@@ -3,11 +3,11 @@ title: "Coding_Challenge4_Markdown_mer0127_kat0084"
 author: "Madeline Redd and Katie Temple"
 date: "2025-02-27"
 output:
-  pdf_document:
+  word_document: 
     toc: true
   md_document:
     variant: gfm  
-  word_document: 
+  pdf_document:
     toc: true
   html_document: 
 ---
@@ -132,8 +132,6 @@ ggsave("combined_plot.jpeg", plot = combined_plots, width =15 , height = 10)
 
 ```
 
-##Question 6
-[Link to github](https://github.com/temkat/CodingChallenge4.git)
+## Question 6
 
-
-
+[link to GitHub](https://github.com/temkat/CodingChallenge4.git)

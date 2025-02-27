@@ -1,0 +1,120 @@
+---
+title: "Coding_Challenge4_Markdown_mer0127_kat0084"
+author: "Madeline Redd and Katie Temple"
+date: "2025-02-27"
+output:
+  pdf_document:
+    toc: true
+  word_document: 
+  html_document: 
+---
+# Data Information  
+> Noel, Z.A., Roze, L.V., Breunig, M., Trail, F. 2022. Endophytic fungi as promising 
+> biocontrol agent to protect wheat from Fusarium graminearum head blight. Plant Disease. 
+> [DOI](https://apsjournals.apsnet.org/doi/10.1094/PDIS-06-21-1253-RE)
+
+# Coding Challenge 3 
+## Quesiton Five
+  - Use geom_pwc() to add t.test pairwise comparisons to the three plots made 
+    above. 
+  - Save each plot as a new R object, and combine them again with ggarange as 
+    you did in question
+
+
+```{r setup, include=TRUE, echo=TRUE}
+library(ggplot2) #version 3.5.1
+library(ggpubr) #version 0.6.0
+library(ggrepel)  #version 0.9.6
+```
+
+Data Set
+
+```{r}
+Mycotoxin<- read.csv("MycotoxinData.csv", na.strings = "na")
+head(Mycotoxin)
+
+str(Mycotoxin)
+```
+
+
+New Color Palette
+```{r}
+cbbPalette <- c( "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2",
+                 "#D55E00", "#CC79A7","#000000")
+```
+
+
+### DON with pairwise comparisons
+```{r, warning=FALSE, fig.width=10, fig.height=7}
+plot1 <- ggplot(Mycotoxin, aes(x=Treatment, y=DON, fill=Cultivar)) +
+  
+  geom_boxplot(outlier.color=NA) +
+  geom_point(pch=21, alpha=0.6, color="black", 
+             position=position_jitterdodge(dodge.width=0.9)) +
+  geom_pwc(aes(group = Treatment),
+           method = "t_test", label = "p.signif", hide.ns = TRUE)+
+  
+  xlab("") +
+  ylab("DON (ppm)") +
+ 
+  theme_classic() +
+  scale_fill_manual(values= cbbPalette) +
+  facet_wrap(~Cultivar)
+
+plot1
+```
+
+### X15ADON with pairwise comparisons
+```{r, warning= FALSE, fig.width=10, fig.height=7}
+plot2 <- ggplot(Mycotoxin, aes(x=Treatment, y=X15ADON, fill=Cultivar)) +
+  geom_boxplot(outlier.color=NA) +
+  geom_point(pch=21, alpha=0.6, color="black", 
+             position=position_jitterdodge(dodge.width=0.9)) +
+  geom_pwc(aes(group = Treatment),method = "t_test", label = "p.signif", 
+           hide.ns = TRUE)+
+  
+  xlab("") +
+  ylab("15ADON") +
+  
+  theme_classic() +
+  scale_fill_manual(values=cbbPalette) +
+  facet_wrap(~Cultivar) 
+  
+
+plot2
+```
+
+### MassperSeed_mg with pairwise comparisons
+```{r, warning= FALSE, fig.width=10, fig.height=7}
+
+plot3 <- ggplot(Mycotoxin, aes(x=Treatment, y=MassperSeed_mg, fill=Cultivar)) +
+  geom_boxplot(outlier.color=NA) +
+  geom_point(pch=21, alpha=0.6, color="black", 
+             position=position_jitterdodge(dodge.width=0.9)) +
+  geom_pwc(aes(group = Treatment), method = "t_test", label = "p.signif")+
+  
+  xlab("") +
+  ylab("Seed Mass (mg)") +
+  
+  theme_classic() +
+  scale_fill_manual(values=cbbPalette) +
+  facet_wrap(~Cultivar) 
+  
+
+plot3
+```
+
+### Combining the three plots into one file
+```{r, warning=FALSE, fig.height= 15, fig.width= 10}
+combined_plots <- ggarrange(plot1, plot2, plot3, 
+                           ncol = 1, nrow = 3, 
+                           labels = c("A", "B", "C"))
+
+combined_plots
+
+ggsave("combined_plot.jpeg", plot = combined_plots, width =15 , height = 10) 
+#Saving Plot to Rproject Folder
+
+```
+
+

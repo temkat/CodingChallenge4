@@ -151,6 +151,9 @@ ggsave("combined_plot.jpeg", plot = combined_plots, width =15 , height = 10)
 #Saving Plot to Rproject Folder
 ```
 
+\##Question 6 [Link to
+githib](https://github.com/temkat/CodingChallenge4.git)
+
 ``` r
 library(fs)
 fs::dir_tree()
@@ -158,6 +161,7 @@ fs::dir_tree()
 
     ## .
     ## ├── 2025_2_27_CodingChallenge4_ClassAssignment_mer0127_kat0084.docx
+    ## ├── 2025_2_27_CodingChallenge4_ClassAssignment_mer0127_kat0084.md
     ## ├── 2025_2_27_CodingChallenge4_ClassAssignment_mer0127_kat0084.pdf
     ## ├── 2025_2_27_CodingChallenge4_ClassAssignment_mer0127_kat0084.Rmd
     ## ├── 2025_2_27_CodingChallenge4_ClassAssignment_mer0127_kat0084_files
@@ -169,4 +173,5 @@ fs::dir_tree()
     ## ├── CodingChallenge4.Rproj
     ## ├── combined_plot.jpeg
     ## ├── MycotoxinData.csv
+    ## ├── README.html
     ## └── README.md

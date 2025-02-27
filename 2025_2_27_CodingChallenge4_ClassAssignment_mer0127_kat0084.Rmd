@@ -5,7 +5,10 @@ date: "2025-02-27"
 output:
   pdf_document:
     toc: true
+  md_document:
+    variant: gfm  
   word_document: 
+    toc: true
   html_document: 
 ---
 # Data Information  
@@ -14,7 +17,19 @@ output:
 > [DOI](https://apsjournals.apsnet.org/doi/10.1094/PDIS-06-21-1253-RE)
 
 # Coding Challenge 3 
-## Quesiton Five
+
+## Question One 
+Explain the following: 
+ **YAML header**
+
+A YAML header contains arguments “title”, “author”, “output”, “toc”, 
+and “theme” within three dashes (- - -) above and below the arguments. 
+
+ **Literate programming** 
+
+A mix of code and descriptive writing to explain and execute data analysis.  
+
+## Quesiton Two
   - Use geom_pwc() to add t.test pairwise comparisons to the three plots made 
     above. 
   - Save each plot as a new R object, and combine them again with ggarange as 
@@ -116,5 +131,9 @@ ggsave("combined_plot.jpeg", plot = combined_plots, width =15 , height = 10)
 #Saving Plot to Rproject Folder
 
 ```
+
+##Question 6
+[Link to github](https://github.com/temkat/CodingChallenge4.git)
+
 
 

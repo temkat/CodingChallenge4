@@ -4,6 +4,7 @@ Coding Challenge.
 
 [GitHub Coding Challenge Four](https://github.com/temkat/CodingChallenge4.git)
 
+```bash 
 ├── 2025_2_27_CodingChallenge4_ClassAssignment_mer0127_kat0084.docx #Word Document
 ├── 2025_2_27_CodingChallenge4_ClassAssignment_mer0127_kat0084.pdf #PDF
 ├── 2025_2_27_CodingChallenge4_ClassAssignment_mer0127_kat0084.Rmd #Markdown File
@@ -11,5 +12,5 @@ Coding Challenge.
 ├── combined_plot.jpeg #Picture of combined plot
 ├── MycotoxinData.csv #Data for analysis
 └── README.md  #read me
-
+```
 
